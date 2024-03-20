@@ -1,5 +1,6 @@
 describe('template spec', () => {
-  it('passes', () => {
+  it('Obligatory field', () => {
+    // Авторизация студента с негативными данными( с пустым полем )
     cy.visit('https://dev.profteam.su/')
     cy.get('[href="/login"] > .button').click()
     cy.wait(1000)
@@ -7,6 +8,5 @@ describe('template spec', () => {
     cy.get('.form-input--text').clear()
     cy.get('.form-error').should('exist')
     cy.log('Обязательное поле')
-
   })
 })

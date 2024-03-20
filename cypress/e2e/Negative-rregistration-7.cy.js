@@ -1,7 +1,9 @@
 describe('template spec', () => {
-  it('passes', () => {
+  it('registration error', () => {
     cy.visit('https://dev.profteam.su/')
     cy.get('[href="/registration"] > .button').click()
+
+    // ошибка при регистрации
 
     cy.get(':nth-child(1) > :nth-child(1) > .form-control--medium > .form-input--text').type('studentik')
     cy.get('.form-input--email').type('studentik@gmail.com')

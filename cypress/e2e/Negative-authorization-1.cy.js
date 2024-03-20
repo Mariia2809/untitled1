@@ -1,5 +1,6 @@
 describe('template spec', () => {
-  it('passes', () => {
+  it('negative authorization', () => {
+    //Авторизация студента с негативными данными( с неправильным паролем)
     cy.visit('https://dev.profteam.su/')
     cy.get('[href="/login"] > .button').click()
 

@@ -1,5 +1,5 @@
 describe('template spec', () => {
-  it('passes', () => {
+  it('successful authorization', () => {
 
 //базовая успешная авторизация
 
@@ -21,5 +21,17 @@ describe('template spec', () => {
     cy.get(':nth-child(2) > .form-input--password').type('QWEasd1234');
     cy.get('.form__buttons > div > .button').click();
     cy.wait(2000)
+
+
+// возвращение старого пароля чтобы не было ошибок при входе по данным из ТЗ
+
+    cy.get(':nth-child(1) > .header__nav > [href="/vacancies"] > .header__label').click()
+    cy.go('back')
+    cy.get(':nth-child(1) > .form-input--password').type('Password1');
+    cy.wait(2000)
+    cy.get(':nth-child(2) > .form-input--password').type('Password1');
+    cy.get('.form__buttons > div > .button').click();
+    cy.wait(2000)
+    cy.get('.form__buttons > div > p').should('exist')
   })
 })

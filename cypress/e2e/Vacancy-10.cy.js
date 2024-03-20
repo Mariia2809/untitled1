@@ -1,7 +1,9 @@
 describe('template spec', () => {
-  it('passes', () => {
+  it('job creation', () => {
     cy.visit('https://dev.profteam.su/')
-// Создание вакансии
+
+  // Создание вакансии
+
     cy.get('[href="/login"] > .button').click()
     cy.wait(1000)
     cy.get('.form-input--text').type('testerEmployer')
@@ -16,5 +18,6 @@ describe('template spec', () => {
     cy.wait(1000)
     cy.get('.vacancy-add-form-wrapper > .form > .form__buttons > .buttons > button').click({force: true})
     cy.log('Вакансия создана!')
+    cy.url().should('include', '/account/vacancies') // => true
   })
 })
